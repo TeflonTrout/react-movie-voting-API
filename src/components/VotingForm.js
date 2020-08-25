@@ -26,7 +26,6 @@ function VotingForm() {
                         onChange={e => handleRatingChange(e, (movie.rating), (movie.id))}
                         autoComplete="new-password"
                         />
-
                 </div>
                ))}
             </form> 
