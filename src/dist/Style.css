@@ -1,0 +1,128 @@
+* {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+.App {
+  background-image: url("./components/MovieCurtains.jpg");
+  background-size: cover;
+  height: 100vh;
+  color: white;
+}
+
+.add-movie {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.add-movie h1 {
+  font-size: 50px;
+}
+.add-movie .add-movie-form {
+  display: flex;
+}
+.add-movie .input-bar {
+  margin: 10px;
+  font-size: 36px;
+  padding: 10px 20px;
+  text-align: center;
+}
+.add-movie .add-btn {
+  outline: none;
+  border: none;
+  font-size: 36px;
+  background: transparent;
+  color: white;
+}
+.add-movie .add-btn:hover {
+  cursor: pointer;
+  color: #00b400;
+}
+
+.movie-list {
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  overflow-x: hidden;
+}
+.movie-list .pity-point {
+  display: flex;
+  margin-left: 120px;
+  font-size: 30px;
+}
+.movie-list .movie-component {
+  display: flex;
+  width: 100%;
+}
+.movie-list .movie-component h1 {
+  font-size: 48px;
+  float: left;
+  width: 40%;
+}
+.movie-list .movie-component .check-box {
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+}
+.movie-list .movie-component input {
+  width: 15%;
+  font-size: 48px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.movie-list .movie-component input, .movie-list .movie-component select, .movie-list .movie-component textarea {
+  color: black;
+}
+.movie-list .movie-component input:hover {
+  outline: none;
+}
+.movie-list .movie-component button {
+  border: none;
+  outline: none;
+  font-size: 40px;
+  background: transparent;
+  color: white;
+}
+.movie-list .movie-component button:hover {
+  color: red;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.movie-list .submit-btn {
+  margin-top: 50px;
+  color: white;
+  background: black;
+  outline: none;
+  font-size: 36px;
+  display: flex;
+  cursor: pointer;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+}
+.movie-list .submit-btn:hover {
+  transition: 0.15s ease-in;
+  background: red;
+}
+
+.results-screen {
+  display: block;
+  border: 1px solid red;
+  height: 100vh;
+  overflow: hidden;
+}
+.results-screen h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
