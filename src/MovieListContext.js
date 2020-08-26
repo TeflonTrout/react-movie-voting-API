@@ -18,6 +18,11 @@ export const MovieListProvider = (props) => {
             id: 2,
             title: "Charlie",
             rating: "7"
+        },
+        {
+            id: 3,
+            title: "Delta",
+            rating: 4
         }
     ]);
 
