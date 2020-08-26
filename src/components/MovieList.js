@@ -7,26 +7,30 @@ const MovieList = () => {
     const [movieList, setMovieList] = useContext(MovieListContext);
 
 //Handle Form Submit => Post to API
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         setMovieList(movieList);
         console.log(JSON.stringify(movieList));
         
 //Fetch POST to API
-        fetch('http://192.168.254.87:8080/api', {
+
+
+
+       await fetch('http://192.168.254.87:3000/api', {
             method: 'POST',
             mode: 'no-cors',
+            credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify([movieList])
+            body: JSON.stringify(movieList)
         }).then(response => {
             if (response.status >= 200 && response.status < 300) {
                 return response;
                 console.log(response);
             } else {
-                console.log('BIGLY ERROR', response)
+                console.log('BIGLY ERROR', response.status)
             }
         }).catch(err => err);
         console.log('POSTED', movieList);
@@ -42,6 +46,7 @@ const MovieList = () => {
         console.log(movieList)
     }
 
+
     //REMOVE MOVIE FROM ARRAY
     const handleRemoveMovie = (e, id) => {
         e.preventDefault();
@@ -52,7 +57,7 @@ const MovieList = () => {
 
     return (
         <div className='movie-list'>
-            <form /*onSubmit={handleSubmit}*/>
+            <form onSubmit={handleSubmit}>
                 <div className='pity-point'>
                     <p>Pity Point?</p>
                 </div>
