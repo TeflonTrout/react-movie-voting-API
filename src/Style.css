@@ -227,7 +227,6 @@
 
 .results-screen {
   display: block;
-  border: 1px solid red;
   height: 100vh;
   overflow: hidden;
   width: 100%;
