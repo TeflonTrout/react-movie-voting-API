@@ -9,8 +9,8 @@
 }
 
 .App {
-    background: rgb(190,0,0);
-    background: linear-gradient(135deg, rgba(190,0,0,1) 0%, rgba(255,28,28,1) 100%);
+    background: rgb(124,0,0);
+    background: radial-gradient(circle, rgba(124,0,0,1) 0%, rgba(255,28,28,1) 100%);    
     height: 200vh;
 }
 
@@ -120,16 +120,19 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
+    h1 {
+        font-size: 50px;
+    }
     .voting-item {
         padding: 10px 20px;
+        width: 90%;
         display: flex;
         justify-content: space-around;
         border: 1px solid green;
         h1{
-            font-size: 50px;
+            font-size: 40px;
             float: left;
-            justify-self: flex-start;
-            border: 1px solid blue;
+            width: 70%;
         }
         .check-box {
             border: none;
@@ -137,11 +140,10 @@
             width: 25px;
             height: 25px;
             float: right;
-            justify-self: right;
         }
         input {
             width: 15%;
-            font-size: 40px;
+            font-size: 36px;
             text-align: center;
             outline: none;
             background: transparent;
@@ -153,12 +155,10 @@
             color: black;
         }
         input:hover {
-            outline: none;
-            border: none;
+            cursor: pointer;
         }
         input:focus, textarea:focus {
             outline: none;
-            border: none;
         }
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
@@ -181,9 +181,15 @@
     border: 1px solid red;
     height: 100vh;
     overflow: hidden;
+    width: 100%;
     h1 {
         text-align: center;
         font-size: 40px;
         margin-bottom: 50px;
     }
+}
+
+.result-chart {
+    // height: 100vh;
+    width: 100%;
 }

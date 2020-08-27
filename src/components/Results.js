@@ -26,9 +26,20 @@ function Results() {
             borderWidth: 1
         });
         setChartOptions({
+            responsive: true,
+            maintainAspectRatio: true,
             animation: {
                 duration: 3000,
                 easing: 'easeInBounce'
+            },
+            layout: {
+                padding: 25
+            },
+            legend: {
+                labels: {
+                    fontColor: 'black',
+                    fontSize: 25
+                }
             }
         })
     }
@@ -42,6 +53,7 @@ function Results() {
         <div className='results-screen'>
             <h1>AND THE WINNER IS...</h1>
             <Pie 
+                className='result-chart'
                 data={ chartData }
                 options= { chartOptions }
             />

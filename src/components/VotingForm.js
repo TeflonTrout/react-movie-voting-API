@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MovieListContext } from '../MovieListContext'
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 function VotingForm() {
     const [movieList, setMovieList] = useContext(MovieListContext);
+    const [clientVote, setClientVote] = useState([])
 
     //UPDATE RATING TO INPUT VALUE
     const handleRatingChange = (e, rating, id) => {
@@ -15,29 +17,42 @@ function VotingForm() {
         }))
         console.log(movieList)
     };
-
+    //FORM SUBMIT FUNCTION
     const handleVotingSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://192.168.254.87:8080/api', {movieList});
-        console.log('You Voted')
-        console.log(movieList)
+        setClientVote((JSON.stringify(movieList)));
+
+    //API POST     
+        
+            axios.post('http://192.168.254.87:3000/api', 
+                JSON.stringify(movieList))
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log("axios error:", error);
+        });
+        console.log("You posted", (JSON.stringify(movieList)))
     }
 
     return (
         <div className='voting-form'>
             <form className='voting-form' onSubmit={e => handleVotingSubmit(e)}>
+            <h1>TIME TO VOTE</h1>
                {movieList.map(movie=> (
                     <div className='voting-item' key={movie.id}>
                         <h1>{movie.title}</h1>
-                            <input className='check-box' type="checkbox"/>
-                            <input type='number'
+                            {/* <input className='check-box' type="checkbox"/> */}
+                        <input type='number'
                                 placeholder={movie.rating}
                                 onChange={e => handleRatingChange(e, (movie.rating), (movie.id))}
                                 autoComplete="new-password"
-                            />
+                        />
                 </div>
                ))}
-               <button className='vote-btn'>VOTE</button>
+               <Link to='/results' style={{ textDecoration: 'none' }}>
+               <button className='vote-btn'>SEND IT</button>
+               </Link>
             </form> 
         </div>
     )

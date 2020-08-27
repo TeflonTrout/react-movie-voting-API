@@ -10,8 +10,8 @@
 }
 
 .App {
-  background: #be0000;
-  background: linear-gradient(135deg, #be0000 0%, #ff1c1c 100%);
+  background: #7c0000;
+  background: radial-gradient(circle, #7c0000 0%, #ff1c1c 100%);
   height: 200vh;
 }
 
@@ -121,17 +121,20 @@
   width: 100%;
   height: 100vh;
 }
+.voting-form h1 {
+  font-size: 50px;
+}
 .voting-form .voting-item {
   padding: 10px 20px;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   border: 1px solid green;
 }
 .voting-form .voting-item h1 {
-  font-size: 50px;
+  font-size: 40px;
   float: left;
-  justify-self: flex-start;
-  border: 1px solid blue;
+  width: 70%;
 }
 .voting-form .voting-item .check-box {
   border: none;
@@ -139,11 +142,10 @@
   width: 25px;
   height: 25px;
   float: right;
-  justify-self: right;
 }
 .voting-form .voting-item input {
   width: 15%;
-  font-size: 40px;
+  font-size: 36px;
   text-align: center;
   outline: none;
   background: transparent;
@@ -155,12 +157,10 @@
   color: black;
 }
 .voting-form .voting-item input:hover {
-  outline: none;
-  border: none;
+  cursor: pointer;
 }
 .voting-form .voting-item input:focus, .voting-form .voting-item textarea:focus {
   outline: none;
-  border: none;
 }
 .voting-form .voting-item input[type=number]::-webkit-inner-spin-button,
 .voting-form .voting-item input[type=number]::-webkit-outer-spin-button {
@@ -181,9 +181,14 @@
   border: 1px solid red;
   height: 100vh;
   overflow: hidden;
+  width: 100%;
 }
 .results-screen h1 {
   text-align: center;
   font-size: 40px;
   margin-bottom: 50px;
+}
+
+.result-chart {
+  width: 100%;
 }

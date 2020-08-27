@@ -14,10 +14,7 @@ const MovieList = () => {
         console.log(JSON.stringify(movieList));
         
 //Fetch POST to API
-        axios.post('http://192.168.254.87:8080/api', {
-            firstName: 'Test',
-            lastName: 'Testing'
-        });
+        
 
         // fetch('http://192.168.254.87:8080/api', {
         //     method: 'POST',
@@ -74,7 +71,7 @@ const MovieList = () => {
                         <button onClick={e => handleRemoveMovie(e, (movie.id))}><i class="fas fa-trash-alt"></i></button>
                     </div>
                 ))}
-                <button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i></button>
+                <Link to='/voting' style={{ textDecoration:'none' }}><button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i></button></Link>
             </form>
         </div>
     )
