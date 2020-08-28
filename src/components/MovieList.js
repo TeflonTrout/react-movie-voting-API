@@ -16,23 +16,22 @@ const MovieList = () => {
 //Fetch POST to API
         
 
-        // fetch('http://192.168.254.87:8080/api', {
-        //     method: 'POST',
-        //     mode: 'no-cors',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify([movieList])
-        // }).then(response => {
-        //     if (response.status >= 200 && response.status < 300) {
-        //         return response;
-        //         console.log(response);
-        //     } else {
-        //         console.log('BIGLY ERROR', response)
-        //     }
-        // }).catch(err => err);
-        // console.log('POSTED', movieList);
+        fetch('192.168.254.81:3000/api', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movieList)
+        }).then(response => {
+            if (response.status >= 200 && response.status < 300) {
+                return response;
+                console.log(response);
+            } else {
+                console.log('BIGLY ERROR', response)
+            }
+        }).catch(err => err);
+        console.log('POSTED', movieList);
     }
 
     const handleRatingChange = (e, rating, id) => {

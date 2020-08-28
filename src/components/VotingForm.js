@@ -22,17 +22,49 @@ function VotingForm() {
         e.preventDefault();
         setClientVote((JSON.stringify(movieList)));
 
-    //API POST     
+    //API POST 
+        const api_url = "http://192.168.254.81:3000/api"
         
-            axios.post('http://192.168.254.87:3000/api', 
-                JSON.stringify(movieList))
+        const headers = {
+            'Host': "192.168.254.81:3000/api",
+            'Content-Type': 'application/json',
+            'Content-Length': 'Buffer.byteLength(movieList)'
+        }
+
+        const data = (JSON.stringify(movieList));
+        
+        
+        axios.post(api_url,
+            movieList, {
+            headers: {
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+            }
+        })
         .then((response) => {
             console.log(response)
         })
         .catch((error) => {
-            console.log("axios error:", error);
+            console.log(error.response);
         });
         console.log("You posted", (JSON.stringify(movieList)))
+
+        fetch('http://192.168.254.81:3000/api', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movieList)
+        }).then(response => {
+            if (response.status >= 200 && response.status < 300) {
+                return response;
+                console.log(response);
+            } else {
+                console.log('BIGLY ERROR', response)
+            }
+        }).catch(err => err);
+        console.log('POSTED', movieList);
     }
 
     return (
@@ -50,9 +82,9 @@ function VotingForm() {
                         />
                 </div>
                ))}
-               <Link to='/results' style={{ textDecoration: 'none' }}>
+               {/* <Link to='/results' style={{ textDecoration: 'none' }}> */}
                <button className='vote-btn'>SEND IT</button>
-               </Link>
+               {/* </Link> */}
             </form> 
         </div>
     )
