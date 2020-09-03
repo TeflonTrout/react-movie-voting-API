@@ -11,9 +11,10 @@
 }
 
 .App {
-  background: #be0000;
-  background: linear-gradient(135deg, #be0000 0%, #ff1c1c 100%);
-  height: 200vh;
+  background-image: url("./components/MovieCurtains.jpg");
+  background-size: cover;
+  height: 100vh;
+  color: white;
 }
 
 .add-movie {
@@ -25,7 +26,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: auto;
 }
 
 .add-movie h1 {
@@ -128,7 +128,7 @@
 .movie-list .submit-btn {
   margin-top: 50px;
   color: white;
-  background: black;
+  background: green;
   outline: none;
   font-size: 36px;
   display: -webkit-box;
@@ -144,85 +144,6 @@
   -webkit-transition: .15s ease-in;
   transition: .15s ease-in;
   background: red;
-}
-
-.voting-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  height: 100vh;
-}
-
-.voting-form .voting-item {
-  padding: 10px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  border: 1px solid green;
-}
-
-.voting-form .voting-item h1 {
-  font-size: 50px;
-  float: left;
-  justify-self: flex-start;
-  border: 1px solid blue;
-}
-
-.voting-form .voting-item .check-box {
-  border: none;
-  outline: none;
-  width: 25px;
-  height: 25px;
-  float: right;
-  -ms-grid-column-align: right;
-      justify-self: right;
-}
-
-.voting-form .voting-item input {
-  width: 15%;
-  font-size: 40px;
-  text-align: center;
-  outline: none;
-  background: transparent;
-  color: black;
-  border: none;
-  border-bottom: 2px solid black;
-}
-
-.voting-form .voting-item input, .voting-form .voting-item select, .voting-form .voting-item textarea {
-  color: black;
-}
-
-.voting-form .voting-item input:hover {
-  outline: none;
-  border: none;
-}
-
-.voting-form .voting-item input:focus, .voting-form .voting-item textarea:focus {
-  outline: none;
-  border: none;
-}
-
-.voting-form .voting-item input[type=number]::-webkit-inner-spin-button,
-.voting-form .voting-item input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.voting-form .vote-btn {
-  font-size: 36px;
-  padding: 10px 20px;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
 }
 
 .results-screen {

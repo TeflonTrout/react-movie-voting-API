@@ -14,10 +14,14 @@ const MovieList = () => {
         console.log(JSON.stringify(movieList));
         
 //Fetch POST to API
-        axios.post('http://192.168.254.87:8080/api', {
-            firstName: 'Test',
-            lastName: 'Testing'
-        });
+        axios.post('http://192.168.254.87:3000/api', {"body": {movieList}}, {
+            mode: 'no-cors',
+            crossdomain: true,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            },
+        },);
 
         // fetch('http://192.168.254.87:8080/api', {
         //     method: 'POST',
