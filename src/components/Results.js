@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import {MovieListContext} from "../MovieListContext";
 import { Pie } from 'react-chartjs-2';
+import Axios from 'axios';
 
 
 function Results() {
@@ -45,7 +46,22 @@ function Results() {
     }
 
     useEffect(() => {
-        chart();
+        // axios.get("http://192.168.254.77:3000/api",
+        //     movieList, {
+        //     headers: {
+        //         "Accept":"application/json",
+        //         "Content-Type":"application/json",
+        //     }
+        // })
+        // .then((response) => {
+        //     console.log(response)
+        // })
+        // .catch((error) => {
+        //     console.log(error.response);
+        // });
+        // console.log("You posted", (JSON.stringify(movieList)))
+
+        // chart();
         
     }, [])
 
