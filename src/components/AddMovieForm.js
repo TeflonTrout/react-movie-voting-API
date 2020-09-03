@@ -31,6 +31,7 @@ const AddMovieForm = () => {
 
 
         setMovieList(movieList => [...movieList, {id: (Date.now()), title: title, rating: rating}])
+        setTitle('')
         console.log("added", title, "to the list")
         console.log(results)
     }

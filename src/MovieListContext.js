@@ -22,7 +22,7 @@ export const MovieListProvider = (props) => {
         {
             id: 3,
             title: "Delta",
-            rating: 4
+            rating: "4"
         }
     ]);
 

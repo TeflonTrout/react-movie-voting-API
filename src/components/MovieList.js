@@ -14,32 +14,24 @@ const MovieList = () => {
         console.log(JSON.stringify(movieList));
         
 //Fetch POST to API
-        axios.post('http://192.168.254.87:3000/api', {"body": {movieList}}, {
-            mode: 'no-cors',
-            crossdomain: true,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            },
-        },);
+        
 
-        // fetch('http://192.168.254.87:8080/api', {
-        //     method: 'POST',
-        //     mode: 'no-cors',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify([movieList])
-        // }).then(response => {
-        //     if (response.status >= 200 && response.status < 300) {
-        //         return response;
-        //         console.log(response);
-        //     } else {
-        //         console.log('BIGLY ERROR', response)
-        //     }
-        // }).catch(err => err);
-        // console.log('POSTED', movieList);
+        fetch('192.168.254.81:3000/api', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movieList)
+        }).then(response => {
+            if (response.status >= 200 && response.status < 300) {
+                return response;
+                console.log(response);
+            } else {
+                console.log('BIGLY ERROR', response)
+            }
+        }).catch(err => err);
+        console.log('POSTED', movieList);
     }
 
     const handleRatingChange = (e, rating, id) => {
@@ -79,7 +71,7 @@ const MovieList = () => {
                         <button onClick={e => handleRemoveMovie(e, (movie.id))}><i class="fas fa-trash-alt"></i></button>
                     </div>
                 ))}
-                <button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i></button>
+                <Link to='/voting' style={{ textDecoration:'none' }}><button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i></button></Link>
             </form>
         </div>
     )
