@@ -23,7 +23,7 @@ function VotingForm() {
         setClientVote((JSON.stringify(movieList)));
 
     //API POST 
-        const api_url = "http://192.168.254.77:3000/api"
+        const api_url = "http://192.168.254.81:3000/api"
         
         const headers = {
             'Host': "192.168.254.81:3000/api",
@@ -48,23 +48,6 @@ function VotingForm() {
             console.log(error.response);
         });
         console.log("You posted", (JSON.stringify(movieList)))
-
-        // fetch('http://192.168.254.81:3000/api', {
-        //     method: 'POST',
-        //     mode: 'no-cors',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(movieList)
-        // }).then(response => {
-        //     if (response.status >= 200 && response.status < 300) {
-        //         return response;
-        //         console.log(response);
-        //     } else {
-        //         console.log('BIGLY ERROR', response)
-        //     }
-        // }).catch(err => err);
-        // console.log('POSTED', movieList);
     }
 
     return (
@@ -82,9 +65,10 @@ function VotingForm() {
                         />
                 </div>
                ))}
-               {/* <Link to='/results' style={{ textDecoration: 'none' }}> */}
                <button className='vote-btn'>SEND IT</button>
-               {/* </Link> */}
+               <Link to='/results' style={{ textDecoration: 'none' }}>
+                   <button className='vote-btn'>Go to Results</button>
+               </Link>
             </form> 
         </div>
     )
