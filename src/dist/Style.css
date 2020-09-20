@@ -15,6 +15,46 @@
   height: 200vh;
 }
 
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+}
+.landing-page h1 {
+  font-size: 60px;
+}
+.landing-page button {
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: red;
+  background: black;
+  font-size: 40px;
+  cursor: pointer;
+}
+.landing-page button:hover {
+  color: white;
+}
+
+.results-waiting-page {
+  height: 100vh;
+  display: flex;
+}
+.results-waiting-page button {
+  outline: none;
+  border: none;
+  font-size: 50px;
+  border-radius: 15px;
+  background: black;
+  color: red;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.results-waiting-page button:hover {
+  color: white;
+}
+
 .add-movie {
   width: 100%;
   display: flex;
