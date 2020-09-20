@@ -4,6 +4,7 @@ import MovieList from './components/MovieList'
 import VotingForm from './components/VotingForm'
 import Results from './components/Results'
 import LandingPage from './components/LandingPage'
+import Voted from './components/Voted'
 import ResultsWaiting from './components/ResultsWaiting'
 import {MovieListProvider, MovieListContext} from './MovieListContext';
 import AddMovieForm from './components/AddMovieForm'
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path='/voting'>
             <VotingForm />
+          </Route>
+          <Route path='/voted'>
+            <Voted />
           </Route>
           <Route path='/results-wait'>
             <ResultsWaiting />

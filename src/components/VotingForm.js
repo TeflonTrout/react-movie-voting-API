@@ -1,11 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { MovieListContext } from '../MovieListContext'
 import { Link } from 'react-router-dom'
+import Voted from './Voted'
 import axios from 'axios';
 
 function VotingForm() {
     const [movieList, setMovieList] = useContext(MovieListContext);
     const [clientVote, setClientVote] = useState([])
+
+    useEffect(() => {
+        fetch('http://192.168.254.81:3000/api')
+            .then(res => res.json())
+            .then(json => {
+                setMovieList(json.data)
+                
+            })
+            console.log(movieList)
+    }, [])
 
     //UPDATE RATING TO INPUT VALUE
     const handleRatingChange = (e, rating, id) => {
@@ -66,9 +77,9 @@ function VotingForm() {
                 </div>
                ))}
                <button className='vote-btn'>SEND IT</button>
-               <Link to='/results' style={{ textDecoration: 'none' }}>
-                   <button className='vote-btn'>Go to Results</button>
-               </Link>
+               {/* <Link to='/voted' style={{ textDecoration: 'none' }}>
+               </Link> */}
+                   {/* <button className='vote-btn'>Go to Results</button> */}
             </form> 
         </div>
     )

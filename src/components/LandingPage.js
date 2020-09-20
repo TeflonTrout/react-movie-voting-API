@@ -7,12 +7,12 @@ function LandingPage() {
             <h1>WELCOME!</h1>
                 <Link to='/list'>
                 <button>
-                    Go to Vote
+                    Projector Click Here
                 </button>
                 </Link>
-                <Link to='/results-wait'>
+                <Link to='/voting'>
                 <button>
-                    Wait for Results
+                    Click Here to Vote
                 </button>
                 </Link>
         </div>

@@ -46,6 +46,13 @@
   color: white;
 }
 
+.voted-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 60px;
+}
+
 .results-waiting-page {
   height: 100vh;
   display: -webkit-box;
@@ -221,7 +228,6 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  border: 1px solid green;
 }
 
 .voting-form .voting-item h1 {

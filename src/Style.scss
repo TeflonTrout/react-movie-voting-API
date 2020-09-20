@@ -36,6 +36,11 @@
     }
 }
 
+.voted-page {
+    display: flex;
+    font-size: 60px;
+}
+
 .results-waiting-page {
     height: 100vh;
     display: flex;
@@ -167,7 +172,6 @@
         width: 90%;
         display: flex;
         justify-content: space-around;
-        border: 1px solid green;
         h1{
             font-size: 40px;
             float: left;

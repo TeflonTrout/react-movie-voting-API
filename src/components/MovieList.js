@@ -11,12 +11,12 @@ const MovieList = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         setMovieList(movieList);
-        console.log(JSON.stringify(movieList));
+        console.log(JSON.stringify("Posted",movieList));
         
 //Fetch POST to API
         
 
-        fetch('192.168.254.81:3000/api', {
+        fetch('http://192.168.254.81:3000/api', {
             method: 'POST',
             mode: 'no-cors',
             headers: {
@@ -62,16 +62,16 @@ const MovieList = () => {
                 {movieList.map(movie => (
                     <div className='movie-component' key={movie.id}>
                         <h1>{movie.title}</h1>
-                        {/* <input className='check-box' type="checkbox"/>
-                        <input type='number'
-                        placeholder={movie.rating}
-                        onChange={e => handleRatingChange(e, (movie.rating), (movie.id))}
-                        autoComplete="new-password"
-                        /> */}
                         <button onClick={e => handleRemoveMovie(e, (movie.id))}><i class="fas fa-trash-alt"></i></button>
                     </div>
                 ))}
-                <Link to='/voting' style={{ textDecoration:'none' }}><button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i></button></Link>
+                    <button className='submit-btn' type='submit'>LIGHTS, CAMERA, ACTION! <br></br> <i class="fas fa-ticket-alt"></i>
+                    </button>
+                <Link to='/results' style={{ textDecoration:'none' }}>
+                    <button>
+                        Go to results
+                    </button>
+                </Link>
             </form>
         </div>
     )
