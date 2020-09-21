@@ -46,22 +46,23 @@ function Results() {
     }
 
     useEffect(() => {
-        // axios.get("http://192.168.254.77:3000/api",
-        //     movieList, {
-        //     headers: {
-        //         "Accept":"application/json",
-        //         "Content-Type":"application/json",
-        //     }
-        // })
-        // .then((response) => {
-        //     console.log(response)
-        // })
-        // .catch((error) => {
-        //     console.log(error.response);
-        // });
-        // console.log("You posted", (JSON.stringify(movieList)))
+        axios.get("http://192.168.254.77:3000/api",
+            movieList, {
+            headers: {
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+            }
+        })
+        .then(res => res.json())
+        .then(setTestData(res),
+            console.log(res)
+        )
+        .catch((error) => {
+            console.log(error.response);
+        });
+        console.log("You posted", (JSON.stringify(movieList)))
 
-        // chart();
+        chart();
         
     }, [])
 
