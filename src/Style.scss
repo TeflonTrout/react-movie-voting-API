@@ -1,4 +1,10 @@
+$primary: #57066B;
+$secondary: #F04499;
+$alt-color: #18B5F6;
+$second-alt: #fdaf30;
+
 * {
+    color: $second-alt;
     margin: auto;
     padding: 0;
     box-sizing: border-box;
@@ -9,9 +15,57 @@
 }
 
 .App {
-    background: rgb(124,0,0);
-    background: radial-gradient(circle, rgba(124,0,0,1) 0%, rgba(255,28,28,1) 100%);    
-    height: 200vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./components/SynthwaveBackground.jpg');
+    background-position: center; 
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    h1 {
+        font-size: 60px;
+    }
+    button {
+        outline: none;
+        border: none;
+        width: 200px;
+        border-radius: 15px;
+        padding: 5px 10px;
+        color: $primary;
+        background: $alt-color;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    button:hover{
+        color: white;
+    }
+}
+
+.voted-page {
+    display: flex;
+    font-size: 60px;
+}
+
+.results-waiting-page {
+    height: 100vh;
+    display: flex;
+    button {
+        outline: none;
+        border: none;
+        font-size: 50px;
+        border-radius: 15px;
+        background: black;
+        color: red;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    button:hover {
+        color: white;
+    }
 }
 
 .add-movie {
@@ -35,11 +89,14 @@
         border: none;
         font-size: 36px;
         background: transparent;
-        color: white;
+        color: $second-alt;
+    }
+    .fa-plus-circle:hover {
+        color: $secondary;
     }
     .add-btn:hover {
         cursor: pointer;
-        color: rgb(0, 180, 0)
+        color: $alt-color;
     }
 }
 
@@ -53,11 +110,17 @@
         margin-left: 120px;
         font-size: 30px;
     }
+    .fas {
+        color: $alt-color
+    }
+    .fas:hover {
+        color: $secondary;
+    }
     .movie-component{
         display: flex;
         width: 100%;
-        
         h1{
+            color: $alt-color;
             font-size: 48px;
             float: left;
             width: 40%;
@@ -90,18 +153,18 @@
             color: white;
         }
         button:hover {
-            color: red;
+            color: $secondary;
             cursor: pointer;
             border: none;
             outline: none;
         }
     }
     .submit-btn {
-        margin-top: 50px;
-        color:white;
-        background: green;
+        margin-top: 30px;
+        color:$alt-color;
+        background: $primary;
         outline: none;
-        font-size: 36px;
+        font-size: 30px;
         display: flex;
         cursor: pointer;
         padding: 15px;
@@ -110,7 +173,7 @@
     }
     .submit-btn:hover {
         transition: .15s ease-in;
-        background: red;
+        background: $secondary;
     }
 }
 
@@ -127,7 +190,6 @@
         width: 90%;
         display: flex;
         justify-content: space-around;
-        border: 1px solid green;
         h1{
             font-size: 40px;
             float: left;
@@ -146,12 +208,12 @@
             text-align: center;
             outline: none;
             background: transparent;
-            color: black;
+            color: white;
             border: none;
             border-bottom: 2px solid black;
         }
         input, select, textarea {
-            color: black;
+            color: white;
         }
         input:hover {
             cursor: pointer;
@@ -167,23 +229,39 @@
     }
     .vote-btn {
         font-size: 36px;
+        background: $secondary;
         padding: 10px 20px;
         outline: none;
         border: none;
         border-radius: 15px;
         cursor: pointer;
     }
+    .vote-btn:hover {
+        background: $alt-color;
+    }
 }
 
 .results-screen {
-    display: block;
-    height: 100vh;
-    overflow: hidden;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40vh;
     h1 {
         text-align: center;
         font-size: 40px;
         margin-bottom: 50px;
+    }
+    .results-btn {
+        border: none;
+        background: $secondary;
+        color: $second-alt;
+        padding: 10px 20px;
+        border-radius: 15px;
+        display: flex;
+        font-size: 40px;
+    }
+    .results-btn:hover {
+        cursor: pointer;
+        color: $alt-color;
     }
 }
 

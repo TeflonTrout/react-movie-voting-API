@@ -1,4 +1,5 @@
 * {
+  color: #fdaf30;
   margin: auto;
   padding: 0;
   box-sizing: border-box;
@@ -10,9 +11,57 @@
 }
 
 .App {
-  background: #7c0000;
-  background: radial-gradient(circle, #7c0000 0%, #ff1c1c 100%);
-  height: 200vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./components/SynthwaveBackground.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
+.landing-page h1 {
+  font-size: 60px;
+}
+.landing-page button {
+  outline: none;
+  border: none;
+  width: 200px;
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: #57066B;
+  background: #18B5F6;
+  font-size: 40px;
+  cursor: pointer;
+}
+.landing-page button:hover {
+  color: white;
+}
+
+.voted-page {
+  display: flex;
+  font-size: 60px;
+}
+
+.results-waiting-page {
+  height: 100vh;
+  display: flex;
+}
+.results-waiting-page button {
+  outline: none;
+  border: none;
+  font-size: 50px;
+  border-radius: 15px;
+  background: black;
+  color: red;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.results-waiting-page button:hover {
+  color: white;
 }
 
 .add-movie {
@@ -37,11 +86,14 @@
   border: none;
   font-size: 36px;
   background: transparent;
-  color: white;
+  color: #fdaf30;
+}
+.add-movie .fa-plus-circle:hover {
+  color: #F04499;
 }
 .add-movie .add-btn:hover {
   cursor: pointer;
-  color: #00b400;
+  color: #18B5F6;
 }
 
 .movie-list {
@@ -55,11 +107,18 @@
   margin-left: 120px;
   font-size: 30px;
 }
+.movie-list .fas {
+  color: #18B5F6;
+}
+.movie-list .fas:hover {
+  color: #F04499;
+}
 .movie-list .movie-component {
   display: flex;
   width: 100%;
 }
 .movie-list .movie-component h1 {
+  color: #18B5F6;
   font-size: 48px;
   float: left;
   width: 40%;
@@ -92,17 +151,17 @@
   color: white;
 }
 .movie-list .movie-component button:hover {
-  color: red;
+  color: #F04499;
   cursor: pointer;
   border: none;
   outline: none;
 }
 .movie-list .submit-btn {
-  margin-top: 50px;
-  color: white;
-  background: green;
+  margin-top: 30px;
+  color: #18B5F6;
+  background: #57066B;
   outline: none;
-  font-size: 36px;
+  font-size: 30px;
   display: flex;
   cursor: pointer;
   padding: 15px;
@@ -111,7 +170,7 @@
 }
 .movie-list .submit-btn:hover {
   transition: 0.15s ease-in;
-  background: red;
+  background: #F04499;
 }
 
 .voting-form {
@@ -128,7 +187,6 @@
   width: 90%;
   display: flex;
   justify-content: space-around;
-  border: 1px solid green;
 }
 .voting-form .voting-item h1 {
   font-size: 40px;
@@ -148,12 +206,12 @@
   text-align: center;
   outline: none;
   background: transparent;
-  color: black;
+  color: white;
   border: none;
   border-bottom: 2px solid black;
 }
 .voting-form .voting-item input, .voting-form .voting-item select, .voting-form .voting-item textarea {
-  color: black;
+  color: white;
 }
 .voting-form .voting-item input:hover {
   cursor: pointer;
@@ -168,23 +226,39 @@
 }
 .voting-form .vote-btn {
   font-size: 36px;
+  background: #F04499;
   padding: 10px 20px;
   outline: none;
   border: none;
   border-radius: 15px;
   cursor: pointer;
 }
+.voting-form .vote-btn:hover {
+  background: #18B5F6;
+}
 
 .results-screen {
-  display: block;
-  height: 100vh;
-  overflow: hidden;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40vh;
 }
 .results-screen h1 {
   text-align: center;
   font-size: 40px;
   margin-bottom: 50px;
+}
+.results-screen .results-btn {
+  border: none;
+  background: #F04499;
+  color: #fdaf30;
+  padding: 10px 20px;
+  border-radius: 15px;
+  display: flex;
+  font-size: 40px;
+}
+.results-screen .results-btn:hover {
+  cursor: pointer;
+  color: #18B5F6;
 }
 
 .result-chart {

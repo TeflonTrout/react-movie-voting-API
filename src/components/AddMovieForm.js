@@ -46,7 +46,7 @@ const AddMovieForm = () => {
             <h1>ADD A MOVIE</h1>
             <form className='add-movie-form' onSubmit={addMovie}>
                 <input required autoComplete="off" className='input-bar' type="text" name="title" onChange={updateTitle} value={title}/> 
-                <button className='add-btn'><i class="fas fa-plus-circle"></i></button> 
+                <button className='add-btn'><i className="fas fa-plus-circle"></i></button> 
             </form>
         </div>
     )

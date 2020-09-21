@@ -1,11 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { MovieListContext } from '../MovieListContext'
 import { Link } from 'react-router-dom'
+import Voted from './Voted'
 import axios from 'axios';
 
 function VotingForm() {
     const [movieList, setMovieList] = useContext(MovieListContext);
     const [clientVote, setClientVote] = useState([])
+
+    useEffect(() => {
+        fetch('http://192.168.254.81:3000/api')
+            .then(res => res.json())
+            .then(json => {
+                setMovieList(json.data)
+                
+            })
+            console.log(movieList)
+    }, [])
 
     //UPDATE RATING TO INPUT VALUE
     const handleRatingChange = (e, rating, id) => {
@@ -23,7 +34,7 @@ function VotingForm() {
         setClientVote((JSON.stringify(movieList)));
 
     //API POST 
-        const api_url = "http://192.168.254.77:3000/api"
+        const api_url = "http://192.168.254.81:3000/api"
         
         const headers = {
             'Host': "192.168.254.81:3000/api",
@@ -48,23 +59,6 @@ function VotingForm() {
             console.log(error.response);
         });
         console.log("You posted", (JSON.stringify(movieList)))
-
-        // fetch('http://192.168.254.81:3000/api', {
-        //     method: 'POST',
-        //     mode: 'no-cors',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(movieList)
-        // }).then(response => {
-        //     if (response.status >= 200 && response.status < 300) {
-        //         return response;
-        //         console.log(response);
-        //     } else {
-        //         console.log('BIGLY ERROR', response)
-        //     }
-        // }).catch(err => err);
-        // console.log('POSTED', movieList);
     }
 
     return (
@@ -76,15 +70,16 @@ function VotingForm() {
                         <h1>{movie.title}</h1>
                             {/* <input className='check-box' type="checkbox"/> */}
                         <input type='number'
-                                placeholder={movie.rating}
+                                placeholder="0"
                                 onChange={e => handleRatingChange(e, (movie.rating), (movie.id))}
                                 autoComplete="new-password"
                         />
                 </div>
                ))}
-               {/* <Link to='/results' style={{ textDecoration: 'none' }}> */}
-               <button className='vote-btn'>SEND IT</button>
-               {/* </Link> */}
+               <button className='vote-btn' onClick={() => history.push('/results-wait')}>SEND IT</button>
+               {/* <Link to='/voted' style={{ textDecoration: 'none' }}>
+               </Link> */}
+                   {/* <button className='vote-btn'>Go to Results</button> */}
             </form> 
         </div>
     )
