@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { MovieListContext } from '../MovieListContext'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Voted from './Voted'
 import axios from 'axios';
 
 function VotingForm() {
     const [movieList, setMovieList] = useContext(MovieListContext);
     const [clientVote, setClientVote] = useState([])
+    let history = useHistory();
 
     useEffect(() => {
         fetch('http://192.168.254.81:3000/api')
@@ -59,6 +60,12 @@ function VotingForm() {
             console.log(error.response);
         });
         console.log("You posted", (JSON.stringify(movieList)))
+        console.log("Post Successful")
+    }
+
+    const buttonClick = (e) => {
+        let path = `/voted`;
+        history.push(path)
     }
 
     return (
@@ -76,9 +83,9 @@ function VotingForm() {
                         />
                 </div>
                ))}
-               <button className='vote-btn' onClick={() => history.push('/results-wait')}>SEND IT</button>
-               {/* <Link to='/voted' style={{ textDecoration: 'none' }}>
-               </Link> */}
+               <button className='vote-btn' type='submit'>SEND IT</button>
+               <Link to='/voted' style={{ textDecoration: 'none' }}>
+               </Link>
                    {/* <button className='vote-btn'>Go to Results</button> */}
             </form> 
         </div>
