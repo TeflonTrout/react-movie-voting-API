@@ -15,6 +15,11 @@ function LandingPage() {
                     Vote
                 </button>
                 </Link>
+                <Link to='/documentation'>
+                <button>
+                    Documentation
+                </button>
+                </Link>
         </div>
     )
 }

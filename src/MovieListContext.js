@@ -4,26 +4,6 @@ export const MovieListContext = createContext();
 
 export const MovieListProvider = (props) => {
     const [movieList, setMovieList] = useState([
-        {
-            id: 0,
-            title: "Alpha",
-            rating: "10"
-        },
-        {
-            id: 1,
-            title: "Bravo",
-            rating: "5"
-        },
-        {
-            id: 2,
-            title: "Charlie",
-            rating: "7"
-        },
-        {
-            id: 3,
-            title: "Delta",
-            rating: "4"
-        }
     ]);
 
     return (
