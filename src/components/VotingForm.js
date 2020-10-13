@@ -76,7 +76,7 @@ function VotingForm() {
                         />
                 </div>
                ))}
-               <button className='vote-btn' onClick={() => history.push('/results-wait')}>SEND IT</button>
+               <button className='vote-btn' >SEND IT</button>
                {/* <Link to='/voted' style={{ textDecoration: 'none' }}>
                </Link> */}
                    {/* <button className='vote-btn'>Go to Results</button> */}
