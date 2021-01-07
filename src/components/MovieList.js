@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Movie from './Movie'
 import {MovieListContext} from "../MovieListContext";
 import axios from 'axios';
 
@@ -13,36 +12,30 @@ const MovieList = () => {
         setMovieList(movieList);
         console.log(JSON.stringify("Posted",movieList));
         
-//Fetch POST to API
-        
-
-        fetch('http://192.168.254.81:3000/api', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(movieList)
-        }).then(response => {
-            if (response.status >= 200 && response.status < 300) {
-                return response;
-                console.log(response);
-            } else {
-                console.log('BIGLY ERROR', response)
-            }
-        }).catch(err => err);
-        console.log('POSTED', movieList);
+    //Fetch POST to API
+        axios.post('https://movie-voting-v1.ue.r.appspot.com/api',
+        movieList
+        )
+        .then(response => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                } else {
+                    console.log('BIGLY ERROR', response)
+                }
+            })
+            .catch(err => err);
+            console.log('POSTED', movieList)
     }
 
-    const handleRatingChange = (e, rating, id) => {
-        setMovieList(movieList.map(movie => {
-            if (movie.id === id) {
-                return {...movie, rating: e.target.value}
-            }
-            return movie
-        }))
-        console.log(movieList)
-    }
+    // const handleRatingChange = (e, rating, id) => {
+    //     setMovieList(movieList.map(movie => {
+    //         if (movie.id === id) {
+    //             return {...movie, rating: e.target.value}
+    //         }
+    //         return movie
+    //     }))
+    //     console.log(movieList)
+    // }
 
 
     //REMOVE MOVIE FROM ARRAY
@@ -51,7 +44,6 @@ const MovieList = () => {
        const newMovieList = movieList.filter((movie) => movie.id !== id);
         return setMovieList([...newMovieList])
     }
-
 
     return (
         <div className='movie-list'>

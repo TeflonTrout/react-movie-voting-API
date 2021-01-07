@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
-import {MovieListContext} from "../MovieListContext";
+import React, { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
-import axios from 'axios';
 
 
 function Results() {
-    const [movieList, setMovieList] = useContext(MovieListContext);
-    const [testData, setTestData] = useState()
+    // const [movieList, setMovieList] = useContext(MovieListContext);
     const [chartData, setChartData] = useState();
     const [chartOptions, setChartOptions] = useState();
-    const [render, setRender] = useState(false);
     let newData = [];
 
     
 
     
     async function handleResults() {
-        await fetch('http://192.168.254.81:3000/api')
+        await fetch('https://movie-voting-v1.ue.r.appspot.com/api')
             .then(res => res.json())
             .then(json => {
                 newData = (json.data)

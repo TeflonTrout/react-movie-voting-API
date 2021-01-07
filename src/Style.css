@@ -16,7 +16,7 @@
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./components/SynthwaveBackground.jpg");
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .results-waiting-page {
-  height: 100vh;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,7 +231,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .voting-form h1 {
@@ -313,7 +313,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 40vh;
+  margin-top: 10vh;
 }
 
 .results-screen h1 {

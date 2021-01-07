@@ -3,8 +3,6 @@ import {MovieListContext} from '../MovieListContext'
 import axios from 'axios';
 
 const AddMovieForm = () => {
-    //API KEY FOR THEMOVIEDB.COM
-     const API_KEY = '08bd865f79a8f129e927b69c5220d722';
 
     //SET STATE AND CONTEXT
     const [movieList, setMovieList] = useContext(MovieListContext)
@@ -21,14 +19,6 @@ const AddMovieForm = () => {
     //ADDS NEW MOVIE TO MOVIELIST ARRAY
     const addMovie = (e) => {
         e.preventDefault();
-
-        // axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${title}`)
-        //     .then((response) => {
-        //         console.log(response.data);
-        //         console.log(response.data.results);
-        //         setResults(response.data.results[0])
-        //     });
-
 
         setMovieList(movieList => [...movieList, {id: (Date.now()), title: title, rating: rating}])
         setTitle('')
